@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import postService from '../../services/postService';
-//import { updatePost } from '../../../controllers/postController';
 
 const Post = ({ post, refreshPosts }) => {
   const [likes, setLikes] = useState(post.likes.length);
+  const [userLiked, setUserLiked] = useState(post.likes.includes(localStorage.getItem('user')));
   const [comments, setComments] = useState(post.comments || []);
   const [commentText, setCommentText] = useState('');
   const [showComments, setShowComments] = useState(false);
@@ -11,12 +11,14 @@ const Post = ({ post, refreshPosts }) => {
   const handleLike = async () => {
     try {
       const userId = localStorage.getItem('user');
-      if (post.likes.includes(userId)) {
+      if (userLiked) {
         await postService.unlikePost(post._id);
         setLikes(likes - 1);
+        setUserLiked(false);
       } else {
         await postService.likePost(post._id);
         setLikes(likes + 1);
+        setUserLiked(true);
       }
       refreshPosts(); // Refresh the posts to reflect the new like/unlike status
     } catch (error) {
@@ -42,7 +44,7 @@ const Post = ({ post, refreshPosts }) => {
       <div>{post.text}</div>
       <div style={{ color: 'gray' }}>{likes} Likes</div>
       <button onClick={handleLike}>
-        {post.likes.includes(localStorage.getItem('user')) ? 'Unlike' : 'Like'}
+        {userLiked ? 'Unlike' : 'Like'}
       </button>
       <button onClick={() => setShowComments(!showComments)}>
         {showComments ? 'Hide Comments' : 'Show Comments'}
