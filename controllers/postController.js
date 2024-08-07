@@ -36,7 +36,7 @@ exports.deletePost = async (req, res) => {
     return res.status(401).json({ message: 'User not authorized' });
   }
 
-  await post.remove();
+  await post.deleteOne();
   res.json({ message: 'Post removed' });
 };
 
@@ -98,7 +98,7 @@ exports.deleteComment = async (req, res) => {
   const post = await Post.findById(req.params.id);
 
   const comment = post.comments.find(
-    (comment) => comment.id === req.params.comment_id
+    (comment) => comment._id.toString() === req.params.comment_id
   );
 
   if (!comment) {
@@ -110,9 +110,10 @@ exports.deleteComment = async (req, res) => {
   }
 
   post.comments = post.comments.filter(
-    ({ id }) => id !== req.params.comment_id
+    (comment) => comment._id.toString() !== req.params.comment_id
   );
 
   await post.save();
   res.json(post.comments);
 };
+
