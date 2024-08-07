@@ -1,12 +1,24 @@
 import React from 'react';
-import AppRouter from './AppRouter';
+import { BrowserRouter as Router, Route, Routes as R } from 'react-router-dom';
+import Header from './components/Layout/Header';
+import Home from './pages/Home';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <AppRouter />
-    </div>
+    <Router>
+      <Header />
+      <div className="container">
+        <R>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </R>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
