@@ -3,7 +3,7 @@ import postService from '../../services/postService';
 
 const Post = ({ post, refreshPosts }) => {
   const [likes, setLikes] = useState(post.likes.length);
-  const [userLiked, setUserLiked] = useState(post.likes.includes(localStorage.getItem('user')));
+  const [userLiked, setUserLiked] = useState(post.likes.some(like => like.user === localStorage.getItem('user')));
   const [comments, setComments] = useState(post.comments || []);
   const [commentText, setCommentText] = useState('');
   const [showComments, setShowComments] = useState(false);
