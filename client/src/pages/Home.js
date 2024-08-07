@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PostList from '../components/Posts/PostList';
 import PostForm from '../components/Posts/PostForm';
 import postService from '../services/postService';
+import { AuthContext } from '../components/Layout/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
 
@@ -17,8 +20,21 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    if (user) {
+      fetchPosts();
+    }
+  }, [user]);
+
+  if (!user) {
+    return (
+      <div>
+        <h1>You are not Connected!</h1>
+        <p>
+          Please <Link to="/login">Login</Link> or <Link to="/register">Register</Link> to view Posts.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>
