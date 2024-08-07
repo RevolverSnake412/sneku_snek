@@ -1,16 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// Header.js
+import React, { useContext } from 'react';
+import { AuthContext } from './AuthContext';
 
 const Header = () => {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error('Header must be used within an AuthProvider');
+  }
+
+  const { user, logout } = context;
+
   return (
-    <header>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/register">Register</Link></li>
-        </ul>
-      </nav>
+    <header style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', borderBottom: '1px solid #ccc' }}>
+      <div>Sneku Snek</div>
+      {user ? (
+        <div>
+          <span>{user.username}</span>
+          <button onClick={logout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        </div>
+      )}
     </header>
   );
 };

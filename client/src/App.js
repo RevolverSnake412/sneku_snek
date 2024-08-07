@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes as R } from 'react-router-dom';
 import Header from './components/Layout/Header';
+import { AuthProvider } from './components/Layout/AuthContext';
 import Home from './pages/Home';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
@@ -8,6 +9,7 @@ import './App.css';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <Header />
       <div className="container">
@@ -18,6 +20,7 @@ function App() {
         </R>
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 
