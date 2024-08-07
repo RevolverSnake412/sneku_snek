@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', borderBottom: '1px solid #ccc' }}>
-      <div>Sneku Snek</div>
+      <div><a href="/">Sneku Snek</a></div>
       {user ? (
         <div>
           <span>{user.username}</span>
