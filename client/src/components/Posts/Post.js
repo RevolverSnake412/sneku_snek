@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import postService from '../../services/postService';
 
 const Post = ({ post, refreshPosts }) => {
   const [likes, setLikes] = useState(post.likes.length);
-  const [userLiked, setUserLiked] = useState(post.likes.some(like => like.user === localStorage.getItem('user')));
+  const [userLiked, setUserLiked] = useState(false); // Initially set to false
   const [comments, setComments] = useState(post.comments || []);
   const [commentText, setCommentText] = useState('');
   const [showComments, setShowComments] = useState(false);
 
+  useEffect(() => {
+    // Check if the user has liked the post when the component mounts
+    const userId = JSON.parse(localStorage.getItem('user'))._id;
+    setUserLiked(post.likes.some(like => like.user === userId));
+  }, [post.likes]);
+
   const handleLike = async () => {
     try {
-      const userId = localStorage.getItem('user');
+      const userId = JSON.parse(localStorage.getItem('user'))._id;
       if (userLiked) {
         await postService.unlikePost(post._id);
         setLikes(likes - 1);

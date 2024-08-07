@@ -41,27 +41,39 @@ exports.deletePost = async (req, res) => {
 };
 
 exports.likePost = async (req, res) => {
-  const post = await Post.findById(req.params.id);
+  try {
+    const post = await Post.findById(req.params.id);
 
-  if (post.likes.some(like => like.user.toString() === req.user._id.toString())) {
-    return res.status(400).json({ message: 'Post already liked' });
+    if (post.likes.some(like => like.user.toString() === req.user._id.toString())) {
+      return res.status(400).json({ message: 'Post already liked' });
+    }
+
+    post.likes.unshift({ user: req.user._id });
+    await post.save();
+
+    await post.populate('likes.user', 'username'); // Populate the user in the likes array
+    res.json(post.likes);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
   }
-
-  post.likes.unshift({ user: req.user._id });
-  await post.save();
-  res.json(post.likes);
 };
 
 exports.unlikePost = async (req, res) => {
-  const post = await Post.findById(req.params.id);
+  try {
+    const post = await Post.findById(req.params.id);
 
-  if (!post.likes.some(like => like.user.toString() === req.user._id.toString())) {
-    return res.status(400).json({ message: 'Post has not yet been liked' });
+    if (!post.likes.some(like => like.user.toString() === req.user._id.toString())) {
+      return res.status(400).json({ message: 'Post has not yet been liked' });
+    }
+
+    post.likes = post.likes.filter(({ user }) => user.toString() !== req.user._id.toString());
+    await post.save();
+
+    await post.populate('likes.user', 'username'); // Populate the user in the likes array
+    res.json(post.likes);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
   }
-
-  post.likes = post.likes.filter(({ user }) => user.toString() !== req.user._id.toString());
-  await post.save();
-  res.json(post.likes);
 };
 
 exports.commentOnPost = async (req, res) => {
