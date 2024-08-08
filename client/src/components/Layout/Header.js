@@ -1,6 +1,7 @@
 // Header.js
 import React, { useContext } from 'react';
 import { AuthContext } from './AuthContext';
+import HeaderCSS from '../../assets/styles/Header.module.css'
 
 const Header = () => {
   const context = useContext(AuthContext);
@@ -12,20 +13,22 @@ const Header = () => {
   const { user, logout } = context;
 
   return (
-    <header style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', borderBottom: '1px solid #ccc' }}>
-      <div><a href="/">Sneku Snek</a></div>
-      {user ? (
-        <div>
-          <span>{user.username}</span>
-          <button onClick={logout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <a href="/login">Login</a>
-          <a href="/register">Register</a>
-        </div>
-      )}
-    </header>
+    <div className={HeaderCSS.header}>
+      <header>
+        <div><a href="/">Sneku Snek</a></div>
+        {user ? (
+          <div>
+            <span>{user.username}</span>
+            <button onClick={logout}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+          </div>
+        )}
+      </header>
+    </div>
   );
 };
 
