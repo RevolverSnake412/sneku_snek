@@ -22,7 +22,7 @@ const Header = () => {
             <button onClick={logout}>Logout</button>
           </div>
         ) : (
-          <div>
+          <div className={HeaderCSS.right}>
             <a href="/login">Login</a>
             <a href="/register">Register</a>
           </div>

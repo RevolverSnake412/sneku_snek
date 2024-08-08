@@ -1,6 +1,18 @@
 .header header {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    padding: 17px;
+    border-bottom: 2px solid #6b947a;
+    background-color: #293a32;
+}
+
+.header a {
+    font-size: 20px;
+    color: #b5c9a6;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+.header .right a {
+    margin: 20px;
 }
