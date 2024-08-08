@@ -6,6 +6,7 @@ import Home from './components/Auth/Home';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import './App.css';
+import Footer from './components/Layout/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </R>
       </div>
     </Router>
+    <Footer />
     </AuthProvider>
   );
 }
