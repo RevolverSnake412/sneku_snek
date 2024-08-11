@@ -1,10 +1,6 @@
 :root {
   --pr-recolor: #C48EAA;
   --sec-recolor: #FFFFFF;
-  --bg-recolor: #F4F4F4;
-  --txt-recolor: #333333;
-  --in-bg-recolor: #FFFFFF;
-  --in-border-recolor: #CCCCCC;
   --button-bg-recolor: var(--pr-recolor);
   --button-txt-recolor: var(--sec-recolor);
 }
@@ -26,7 +22,7 @@
   }
   
   .submitfield h4 {
-    color: var(--txt-recolor);
+    color: var(--txt-color);
     font-size: 24px;
     margin-bottom: 20px;
   }
@@ -37,7 +33,7 @@
   }
   
   .submitfield p {
-    color: var(--txt-recolor);
+    color: var(--txt-color);
     margin-bottom: 20px;
   }
   
@@ -49,9 +45,9 @@
     width: 100%;
     padding: 10px;
     border: none;
-    border-bottom: 2px solid var(--in-border-locolor);
+    border-bottom: 2px solid var(--in-border-color);
     font-size: 16px;
-    color: var(--txt-recolor);
+    color: var(--txt-color);
   }
 
   .floatinglabel input:focus{

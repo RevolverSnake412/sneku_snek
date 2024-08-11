@@ -1,9 +1,6 @@
 :root {
   --pr-locolor: #4CAF50;
   --sec-locolor: #FFFFFF;
-  --txt-color: #333333;
-  --in-bg-locolor: #FFFFFF;
-  --in-border-locolor: #CCCCCC;
   --button-bg-locolor: var(--pr-locolor);
   --button-txt-locolor: var(--sec-locolor);
 }
@@ -48,7 +45,7 @@
     width: 100%;
     padding: 10px;
     border: none;
-    border-bottom: 2px solid var(--in-border-locolor);
+    border-bottom: 2px solid var(--in-border-color);
     font-size: 16px;
     color: var(--txt-color);
   }

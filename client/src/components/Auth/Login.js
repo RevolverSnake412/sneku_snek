@@ -20,31 +20,33 @@ const Login = () => {
   };
 
   return (
-    <div className={LoginCSS.login}>
-      <div className={LoginCSS.submitfield}>
-        <form onSubmit={handleSubmit}>
-        <h4>Welcome back to <span>Sneku Snek</span>!</h4>
-        <p>Log in to your account to view today's snakes.</p>
-        <div className={LoginCSS.floatinglabel}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className='centered-page'>
+      <div className={LoginCSS.login}>
+        <div className={LoginCSS.submitfield}>
+          <form onSubmit={handleSubmit}>
+          <h4>Welcome back to <span>Sneku Snek</span>!</h4>
+          <p>Log in to your account to view today's snakes.</p>
+          <div className={LoginCSS.floatinglabel}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className={LoginCSS.floatinglabel}>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+            <button type="submit">Login</button>
+          </form>
         </div>
-        <div className={LoginCSS.floatinglabel}>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-          <button type="submit">Login</button>
-        </form>
       </div>
     </div>
   );
