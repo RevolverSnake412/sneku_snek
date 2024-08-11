@@ -1,14 +1,48 @@
+:root {
+  --bg-color: #F4F4F4;
+  --in-bg-color: #FFFFFF;
+  --in-border-color: #CCCCCC;
+  --txt-color: #333333;
+}
+
 * {
   box-sizing: border-box;
 }
 
+/* Remove the centering styles from body */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #F4F4F4;
+}
+
+/* Create a new class for centering content */
+.centered-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
+.no-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+
+  h1 {
+    color: var(--txt-color);
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: var(--txt-color);
+    font-size: px;
+    margin-bottom: 20px;
+  }
+}
+

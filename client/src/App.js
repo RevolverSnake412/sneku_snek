@@ -13,13 +13,11 @@ function App() {
     <AuthProvider>
     <Router>
       <Header />
-      <div className="container">
         <R>
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </R>
-      </div>
     </Router>
     <Footer />
     </AuthProvider>
