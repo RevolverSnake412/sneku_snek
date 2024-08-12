@@ -1,14 +1,19 @@
 const Post = require('../models/Post');
 
 exports.createPost = async (req, res) => {
-  const { text } = req.body;
+  const { text, image } = req.body;
 
-  const post = await Post.create({
-    user: req.user._id,
-    text,
-  });
+  try {
+    const post = await Post.create({
+      user: req.user._id,
+      text,
+      image,  // Include the image if provided
+    });
 
-  res.status(201).json(post);
+    res.status(201).json(post);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
 };
 
 exports.getPosts = async (req, res) => {
