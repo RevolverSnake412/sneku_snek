@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import postService from '../../services/postService';
 import { AuthContext } from '../../components/Layout/AuthContext';
+import PostCSS from '../../assets/styles/Post.module.css';
 
 const Post = ({ post, refreshPosts }) => {
   const [likes, setLikes] = useState(post.likes.length);
@@ -68,42 +69,61 @@ const Post = ({ post, refreshPosts }) => {
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', marginBottom: '10px', padding: '10px' }}>
-      <div style={{ fontWeight: 'bold' }}>{post.user.username}</div>
-      <div>{post.text}</div>
-      <div style={{ color: 'gray' }}>{likes} Likes</div>
-      <button onClick={handleLike}>
-        {userLiked ? 'Unlike' : 'Like'}
+    <div className={PostCSS.postContainer}>
+  <div className={PostCSS.postHeader}>
+    <div className={PostCSS.username}>{post.user.username}</div>
+    {user && user._id === post.user._id && (
+      <button onClick={handleDeletePost} className={PostCSS.deleteButton}>
+        Delete
       </button>
-      <button onClick={() => setShowComments(!showComments)}>
+    )}
+  </div>
+  <div className={PostCSS.postText}>{post.text}</div>
+  {post.image && (
+    <div className={PostCSS.imageContainer}>
+      <img src={post.image} alt="Post Image" className={PostCSS.postImage} />
+    </div>
+  )}
+  <div className={PostCSS.likecommentButtons}>
+    <button onClick={handleLike} className={PostCSS.likeButton}>
+      {userLiked ? 'Unlike' : 'Like'}
+    </button>
+    <div className={PostCSS.commentsToggle}>
+      <button onClick={() => setShowComments(!showComments)} className={PostCSS.commentsButton}>
         {showComments ? 'Hide Comments' : 'Show Comments'}
       </button>
-      {user && user._id === post.user._id && (
-        <button onClick={handleDeletePost}>Delete Post</button>
-      )}
-      {showComments && (
-        <div>
-          {comments.length > 0 ? comments.map((comment) => (
-            <div key={comment._id} style={{ marginTop: '10px' }}>
-              <strong>{comment.user.username}:</strong> {comment.text}
-              {user && user._id === comment.user._id && (
-                <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
-              )}
-            </div>
-          )) : <p>No comments yet</p>}
-          <form onSubmit={handleCommentSubmit}>
-            <input
-              type="text"
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              placeholder="Add a comment"
-            />
-            <button type="submit">Comment</button>
-          </form>
-        </div>
-      )}
     </div>
+  </div>
+  <div className={PostCSS.likeCount}>Liked by {likes} people</div>
+  {showComments && (
+    <div className={PostCSS.commentsSection}>
+      {comments.length > 0 ? comments.map((comment) => (
+        <div key={comment._id} className={PostCSS.comment}>
+          <div className={PostCSS.commentContent}>
+            <strong>{comment.user.username}:</strong> {comment.text}
+          </div>
+          {user && user._id === comment.user._id && (
+            <button onClick={() => handleDeleteComment(comment._id)} className={PostCSS.deleteCommentButton}>
+              Delete
+            </button>
+          )}
+        </div>
+      )) : <p className={PostCSS.nocomment}>No comments yet, be the first!</p>}
+      <form onSubmit={handleCommentSubmit} className={PostCSS.commentForm}>
+        <input
+          type="text"
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+          placeholder="Add a nice comment"
+          className={PostCSS.commentInput}
+        />
+        <button type="submit" className={PostCSS.submitCommentButton}>
+          Comment
+        </button>
+      </form>
+    </div>
+  )}
+</div>
   );
 };
-
 export default Post;

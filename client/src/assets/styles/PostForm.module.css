@@ -1,0 +1,49 @@
+.postform {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 500px;
+    max-width: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .textFieldContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .textField {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    filter: brightness(125%);
+  }
+  
+  .fileInput,
+  .previewContainer {
+    margin-top: 15px;
+  }
+  
+  .previewContainer img {
+    max-width: 100px; max-height: 100px;
+    border-radius: 8px;
+  }
+  
