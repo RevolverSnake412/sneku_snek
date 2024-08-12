@@ -4,6 +4,7 @@ import PostForm from '../Posts/PostForm';
 import postService from '../../services/postService';
 import { AuthContext } from '../Layout/AuthContext';
 import { Link } from 'react-router-dom';
+import HomeCSS from '../../assets/styles/Home.module.css'
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -27,8 +28,8 @@ const Home = () => {
 
   if (!user) {
     return (
-      <div>
-        <h1>You are not Connected!</h1>
+      <div className={HomeCSS.noauth}>
+        <h1>You are not Connected ;(</h1>
         <p>
           Please <Link to="/login">Login</Link> or <Link to="/register">Register</Link> to view Posts.
         </p>
@@ -37,10 +38,14 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <h1>Home</h1>
-      <PostForm fetchPosts={fetchPosts} />
-      <PostList posts={posts} error={error} refreshPosts={fetchPosts} />
+    <div className={HomeCSS.homecontainer}>
+      <h1>Share or View Snakes</h1>
+      <div className={HomeCSS.postformcontainer}>
+        <PostForm fetchPosts={fetchPosts} />
+      </div>
+      <div className={HomeCSS.postlistcontainer}>
+        <PostList posts={posts} error={error} refreshPosts={fetchPosts} />
+      </div>
       {error && <div>{error}</div>}
     </div>
   );

@@ -1,0 +1,28 @@
+.homecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 95px 0 40px 0;
+}
+
+
+.noauth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+
+  h1 {
+    color: var(--txt-color);
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: var(--txt-color);
+    font-size: px;
+    margin-bottom: 20px;
+  }
+}
