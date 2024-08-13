@@ -69,16 +69,29 @@ const Post = ({ post, refreshPosts }) => {
   };
 
   const formatDate = (dateString) => {
-    const options = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric', 
-      hour: 'numeric', 
-      minute: 'numeric',
-      hour12: true,
-    };
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', options);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    const diffInHours = Math.floor(diffInMinutes / 60);
+  
+    if (diffInSeconds < 60) {
+      return 'Moments ago';
+    } else if (diffInMinutes < 60) {
+      return `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    } else if (diffInHours < 24) {
+      return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    } else {
+      const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: 'numeric', 
+        minute: 'numeric',
+        hour12: true 
+      };
+      return date.toLocaleDateString('en-US', options);
+    }
   };
 
   return (
