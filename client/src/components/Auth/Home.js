@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PostList from '../Posts/PostList';
 import PostForm from '../Posts/PostForm';
+import End from '../Layout/End';
 import postService from '../../services/postService';
-import { AuthContext } from '../Layout/AuthContext';
+import { AuthContext } from '../../services/AuthContext';
 import { Link } from 'react-router-dom';
 import HomeCSS from '../../assets/styles/Home.module.css'
 
@@ -46,6 +47,7 @@ const Home = () => {
       <div className={HomeCSS.postlistcontainer}>
         <PostList posts={posts} error={error} refreshPosts={fetchPosts} />
       </div>
+      <End />
       {error && <div>{error}</div>}
     </div>
   );
