@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import postService from '../../services/postService';
-import { AuthContext } from '../../components/Layout/AuthContext';
+import { AuthContext } from '../../services/AuthContext';
 import PostCSS from '../../assets/styles/Post.module.css';
 
 const Post = ({ post, refreshPosts }) => {
@@ -68,6 +68,12 @@ const Post = ({ post, refreshPosts }) => {
     }
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+  };
+
   return (
     <div className={PostCSS.postContainer}>
   <div className={PostCSS.postHeader}>
@@ -78,6 +84,7 @@ const Post = ({ post, refreshPosts }) => {
       </button>
     )}
   </div>
+  <div className={PostCSS.postDate}>{formatDate(post.date)}</div>
   <div className={PostCSS.postText}>{post.text}</div>
   {post.image && (
     <div className={PostCSS.imageContainer}>
