@@ -1,6 +1,56 @@
-.footer {
-    position: fixed;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.footerContainer {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 30px 350px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    position: relative;
+    font-family: "Courier Prime", monospace;
+  }
+  
+  .getInTouch {
+    flex: 1;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .newsletter {
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter h3 {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .newsletter form input {
+    padding: 8px;
+    font-size: 14px;
+    background-color: rgb(221, 221, 221);
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  .newsletter form button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+  }
+  
