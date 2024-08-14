@@ -31,10 +31,15 @@
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
-  }
-  
-  .submitButton:hover {
-    filter: brightness(125%);
+
+    &:hover:enabled {
+      filter: brightness(125%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
   }
   
   .fileInput,

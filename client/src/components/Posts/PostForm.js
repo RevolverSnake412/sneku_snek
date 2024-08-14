@@ -41,7 +41,10 @@ const PostForm = ({ fetchPosts }) => {
           required
           className={PostFormCSS.textField}
         />
-        <button type="submit" className={PostFormCSS.submitButton}>
+        <button
+        type="submit"
+        className={PostFormCSS.submitButton}
+        disabled={!text.trim()}>
           Post
         </button>
       </div>
