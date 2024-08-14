@@ -12,7 +12,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'sneku-snek-client.vercel.app',
     credentials: true,
   }));
 
