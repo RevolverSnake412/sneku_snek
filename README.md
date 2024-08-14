@@ -22,7 +22,15 @@ Make sure to replace `yourclusterlink` with your actual MongoDB connection strin
 
 ## Deployment
 
-To deploy the project, you need to ensure that both the client and server sides are running simultaneously on ports 3000 and 5000, respectively.
+To deploy the project, first install dependencies.
+
+- Install dependencies:
+
+  ```bash
+  npm install
+  ```
+
+And you need to ensure that both the client and server sides are running simultaneously on ports 3000 and 5000, respectively.
 
 - Start the server:
 
