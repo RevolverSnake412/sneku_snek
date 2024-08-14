@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+
+@font-face {
+  font-family: 'snakefont';
+  src: url('../fonts/snake-chan.ttf')
+}
+
+@keyframes animationgradienttitle {
+  0% {
+      background-position: 0 1600px;
+  }
+  100% {
+      background-position: 1600px 0;
+  }
+}
+
+
 .header {
     font-family: "Lato", sans-serif;
     position: fixed;
@@ -32,12 +48,17 @@
       }
 
       header div:first-of-type a:first-of-type {
-        font-size: 30px;
+        font-size: 45px;
+        font-family: 'snakefont';
+        background: -webkit-linear-gradient(left, #4CAF50, #b8ffba, white);
+        background-size: 1600px 200px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation-duration: 3s;
+        animation-name: animationgradienttitle;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
       } 
-
-      header div:first-of-type a:first-of-type:hover {
-        color: black;
-      }
       
       header a:hover {
         color: #4CAF50;
