@@ -54,3 +54,22 @@
     border: none;
   }
   
+  @media (max-width: 1100px) {
+    .footerContainer {
+      padding: 30px 100px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .footerContainer {
+      flex-direction: column;
+    }
+
+    .getInTouch {
+      margin-bottom: 50px;
+
+      h3 {
+        text-align: center;
+      }
+    }
+  }
