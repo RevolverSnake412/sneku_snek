@@ -153,8 +153,13 @@
     border-radius: 4px;
     cursor: pointer;
 
-    &:hover {
-        filter: brightness(125%);
+    &:hover:enabled {
+      filter: brightness(125%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
     }
   }
 

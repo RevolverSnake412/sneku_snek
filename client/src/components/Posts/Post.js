@@ -144,9 +144,12 @@ const Post = ({ post, refreshPosts }) => {
           placeholder="Add a nice comment"
           className={PostCSS.commentInput}
         />
-        <button type="submit" className={PostCSS.submitCommentButton}>
-          Comment
-        </button>
+        <button 
+          type="submit" 
+          className={PostCSS.submitCommentButton} 
+          disabled={!commentText.trim()}>
+        Comment
+      </button>
       </form>
     </div>
   )}
