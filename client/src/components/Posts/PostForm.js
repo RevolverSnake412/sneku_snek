@@ -8,14 +8,26 @@ const PostForm = ({ fetchPosts }) => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
+    const fileSizeLimit = 5 * 1024 * 1024; // 5MB limit
+  
+    if (file && file.size > fileSizeLimit) {
+      setErrorMessage('File size exceeds 5MB limit. Please upload a smaller file.');
+      return;
+    }
+  
+    if (file && file.type.startsWith('image/')) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result); // Set the image as a Base64 string
+        setImage(reader.result);
+        setErrorMessage('');
       };
       reader.readAsDataURL(file);
+    } else {
+      setErrorMessage('Unsupported file type. Please upload an image.');
     }
   };
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +60,7 @@ const PostForm = ({ fetchPosts }) => {
           Post
         </button>
       </div>
+      {errorMessage && <p className={PostFormCSS.error}>{errorMessage}</p>}
       <input
         type="file"
         accept="image/*"
