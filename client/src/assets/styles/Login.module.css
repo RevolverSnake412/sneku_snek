@@ -74,6 +74,11 @@
   button:hover {
     filter: brightness(125%);
   }
+
+  .error {
+    color: red !important;
+    font-size: 14px;
+  }
 }
 
 .login::before {
