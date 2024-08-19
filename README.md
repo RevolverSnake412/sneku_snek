@@ -2,6 +2,11 @@
 
 Sneku Snek is a social media platform built with the MERN stack (MongoDB, Express.js, React, Node.js). It is designed to facilitate the sharing and viewing of content related to snakes, aiming to create a positive community for snake enthusiasts. Users can create profiles, post text, images, and videos, and interact with other users through likes and comments.
 
+## Project's Demo
+
+[click below]
+[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=C_ogE2Rrx9A/0.jpg)](https://www.youtube.com/watch?v=C_ogE2Rrx9A)
+
 ## Before Deploying
 
 Before deploying the project, it's essential to configure your environment variables. 
