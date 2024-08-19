@@ -6,6 +6,7 @@ Sneku Snek is a social media platform built with the MERN stack (MongoDB, Expres
 
 https://github.com/user-attachments/assets/f39dedff-30ee-4fc8-acb3-d399dd9ae8f4
 
+# Deployment
 ## Before Deploying
 
 Before deploying the project, it's essential to configure your environment variables. 
@@ -24,17 +25,17 @@ Before deploying the project, it's essential to configure your environment varia
 
 Make sure to replace `yourclusterlink` with your actual MongoDB connection string.
 
-## Deployment
+## Deploying
 
 To deploy the project, first install dependencies.
 
-- Install dependencies:
+- Install dependencies on the server-side (/) and the client-side (/client) using the command:
 
   ```bash
   npm install
   ```
 
-And you need to ensure that both the client and server sides are running simultaneously on ports 3000 and 5000, respectively.
+You need to ensure that both the client and server sides are running simultaneously on ports 3000 and 5000, respectively.
 
 - Start the server:
 
