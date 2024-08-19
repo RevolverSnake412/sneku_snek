@@ -4,8 +4,7 @@ Sneku Snek is a social media platform built with the MERN stack (MongoDB, Expres
 
 ## Project's Demo
 
-[click below]
-[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=C_ogE2Rrx9A/0.jpg)](https://www.youtube.com/watch?v=C_ogE2Rrx9A)
+https://github.com/user-attachments/assets/f39dedff-30ee-4fc8-acb3-d399dd9ae8f4
 
 ## Before Deploying
 
