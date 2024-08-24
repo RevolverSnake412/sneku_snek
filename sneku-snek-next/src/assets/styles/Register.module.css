@@ -1,0 +1,78 @@
+
+.register {
+  display: flex;
+  background-color: var(--sec-recolor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 600px;
+}
+  .submitfield {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .submitfield h4 {
+    color: var(--txt-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .submitfield h4 span {
+    color: var(--pr-recolor);
+    font-weight: bold;
+  }
+  
+  .submitfield p {
+    color: var(--txt-color);
+    margin-bottom: 20px;
+  }
+  
+  .floatinglabel {
+    margin-bottom: 15px;
+  }
+  
+  .floatinglabel input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--in-border-color);
+    font-size: 16px;
+    color: var(--txt-color);
+  }
+
+  .floatinglabel input:focus{
+    outline: none;
+    color: var(--pr-recolor);
+  }
+  
+  .floatinglabel input::placeholder {
+    color: #999999;
+  }
+  
+  .submitBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--button-bg-recolor);
+    color: var(--button-txt-recolor);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: filter 0.5s ease-in-out;
+  }
+  
+ .submitBtn:hover {
+    filter: brightness(125%);
+  }
+
+
+.register::after {
+  content: "";
+  flex: 1;
+  background: url('https://i.pinimg.com/736x/a0/2f/24/a02f24043f69b639f3123bf293d40db4.jpg') no-repeat center center;
+  background-size: cover;
+}

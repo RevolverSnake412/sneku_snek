@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  /*Login*/
+  --pr-locolor: #4CAF50;
+  --sec-locolor: #FFFFFF;
+  --button-bg-locolor: var(--pr-locolor);
+  --button-txt-locolor: var(--sec-locolor);
+
+  /*Register*/
+  --pr-recolor: #C48EAA;
+  --sec-recolor: #FFFFFF;
+  --button-bg-recolor: var(--pr-recolor);
+  --button-txt-recolor: var(--sec-recolor);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.centeredPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

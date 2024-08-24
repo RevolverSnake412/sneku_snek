@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.homecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 95px;
+}
+
+
+.noauth h1 {
+  color: var(--txt-color);
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+.noauth p {
+  color: var(--txt-color);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.noauth {
+  font-family: "Courier Prime", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.noauth a {
+  text-decoration: none;
+}
+
+.noauth a:first-of-type {
+  color: #4CAF50;
+}
+
+.noauth a:hover {
+  filter: brightness(70%)
+}
+
+.noauth a:last-of-type {
+  color: #C48EAA;
+
+  
+}
+.noauth a:hover {
+  filter: brightness(70%);
+}
+
+.noauth h1 {
+  font-family: "Courier Prime", monospace;
+  margin: 40px;
+}
