@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL + '/api/posts/';
+const API_URL = process.env.NEXT_PUBLIC_API_URL + '/api/posts/';
 
 const getConfig = () => {
   const user = JSON.parse(localStorage.getItem('user'));
