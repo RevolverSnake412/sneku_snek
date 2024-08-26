@@ -5,20 +5,22 @@ import authService from '../services/authService';
 import LoginCSS from '../assets/styles/Login.module.css'; 
 import '../../src/app/globals.css'
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await authService.login({ email, password });
       router.push('/');
     } catch (error) {
-      setError('Invalid email or password.');
+        setError('Invalid email or password.');
     }
   };
+     
+
 
   return (
     <div className='centeredPage'>
